@@ -13,7 +13,6 @@ const getDataForId = (id, callback) => {
   });
 };
 
-
 // returns all restaurants from db
 const getAllRestaurants = (callback) => {
   connection.query('SELECT * FROM restaurants', (error, results) => {
@@ -24,4 +23,14 @@ const getAllRestaurants = (callback) => {
   });
 };
 
-module.exports = { getDataForId, getAllRestaurants };
+// SQL query to seed database: called in data.js
+const generateData = (id, name, description, rating, reviews, max_price, food_type, tag1, tag2, tag3, callback) => {
+  connection.query(`INSERT INTO restaurants VALUES (?,?,?,?,?,?,?,?,?,?)`, [id, name, description, rating, reviews, max_price, food_type, tag1, tag2, tag3], (error, results) => {
+    if (error) {
+      console.log('error generating data', error);
+    }
+    callback(null, results);
+  });
+};
+
+module.exports = { getDataForId, getAllRestaurants, generateData };

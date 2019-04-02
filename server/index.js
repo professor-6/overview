@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
 const db = require('../database/index.js');
-const mysql = require('mysql');
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // dynamic endpoint -> /api/restaurants/14 renders data for restaurant 14.
 app.get(`/api/restaurants/:id`, (req, res) => {
@@ -15,6 +14,7 @@ app.get(`/api/restaurants/:id`, (req, res) => {
   })
 });
 
+// renders data for all 100 restaurants
 app.get('/api/restaurants', (req, res) => {
   db.getAllRestaurants((err, results) => {
     if (err) {
