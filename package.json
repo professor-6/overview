@@ -10,25 +10,32 @@
   },
   "scripts": {
     "seed": "mysql -u root <schema.sql && node database/data.js",
+    "test": "mocha",
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/index.js -w database -w server"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.7.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.2.0",
     "eslint": "^5.15.3",
     "express": "^4.16.4",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-test-renderer": "^16.8.6",
+    "supertest": "^4.0.2",
     "webpack": "^2.2.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.4.3",
     "babel-core": "^6.25.0",
     "babel-loader": "^6.4.1",
-    "@babel/preset-env": "^7.4.2",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^24.7.1",
     "webpack-cli": "^3.3.0"
   }
 }
