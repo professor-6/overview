@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS opentable;
+DROP DATABASE opentable;
 CREATE DATABASE opentable;
 
 USE opentable;
