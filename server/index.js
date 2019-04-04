@@ -1,7 +1,12 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
 const db = require('../database/index.js');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(__dirname + '/../client/dist'));
 
 // dynamic endpoint -> /api/restaurants/14 renders data for restaurant 14.
 app.get(`/api/restaurants/:id`, (req, res) => {
