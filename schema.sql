@@ -18,14 +18,14 @@ CREATE TABLE restaurants (
 
 CREATE TABLE photos (
   photo_id int NOT NULL,
-  photo1 VARCHAR(200),
-  photo2 VARCHAR(200),
-  photo3 VARCHAR(200),
-  photo4 VARCHAR(200),
-  photo5 VARCHAR(200),
-  photo6 VARCHAR(200),
-  photo7 VARCHAR(200),
-  photo8 VARCHAR(200),
-  photo9 VARCHAR(200),
-  photo10 VARCHAR(200)
+  photo1 VARCHAR(100),
+  photo2 VARCHAR(100),
+  photo3 VARCHAR(100),
+  photo4 VARCHAR(100),
+  photo5 VARCHAR(100),
+  photo6 VARCHAR(100),
+  photo7 VARCHAR(100),
+  photo8 VARCHAR(100),
+  photo9 VARCHAR(100),
+  photo10 VARCHAR(100)
 );

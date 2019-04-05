@@ -54,9 +54,11 @@ const getData = {
     return foodType;
   },
   getPhotos: () => {
-    let random = Math.floor(Math.random() * Math.floor(12));
-    let photo = photoData.urls[random];
-    return photo;
+    let photos = [];
+    for (var i = 0; i < 10; i++) {
+      photos.push(photoData.urls[Math.floor(Math.random() * Math.floor(12))]);
+    }
+    return photos;
   }
 };
 
@@ -73,7 +75,7 @@ for (var i = 0; i < 100; i++) {
 
 //add photos to each restaurant in photos table
 for (var i = 0; i < 100; i++) {
-  db.generateDataForPhotos(i+1, getData.getPhotos(),getData.getPhotos(),getData.getPhotos(),getData.getPhotos(),getData.getPhotos(),getData.getPhotos(),getData.getPhotos(),getData.getPhotos(),getData.getPhotos(),getData.getPhotos(), (error, results) => {
+  db.generateDataForPhotos(i+1, getData.getPhotos(), (error, results) => {
     if (error) {
       console.log('error generating photos (data.js)', error);
     } else {

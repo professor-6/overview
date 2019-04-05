@@ -44,8 +44,8 @@ const generateDataForRestaurants = (id, name, description, rating, reviews, max_
 };
 
 // SQL query to seed photos table: called in data.js
-const generateDataForPhotos = (photo_id, photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10, callback) => {
-  connection.query(`INSERT INTO photos VALUES (?,?,?,?,?,?,?,?,?,?,?)`, [photo_id, photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10], (error, results) => {
+const generateDataForPhotos = (photo_id, photos, callback) => {
+  connection.query(`INSERT INTO photos VALUES (?,?)`, [photo_id, photos], (error, results) => {
     if (error) {
       console.log('error adding photos to db', error);
     }

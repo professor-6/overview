@@ -26,7 +26,11 @@
     "mysql": "^2.16.0",
     "nodemon": "^1.18.10",
     "react": "^15.6.1",
+    "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^15.6.1",
+    "react-images": "^0.5.19",
+    "react-lightbox-component": "^1.2.1",
+    "react-photo-gallery": "^6.3.2",
     "react-test-renderer": "^16.8.6",
     "supertest": "^4.0.2",
     "webpack": "^2.2.1"
