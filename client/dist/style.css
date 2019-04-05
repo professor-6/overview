@@ -7,8 +7,8 @@ body {
   width: 600px;
 }
 
-
 /* ------------------- NAVIGATION BAR -------------------- */
+
 #nav-bar {
   display: flex;
   justify-content: space-around;
@@ -71,20 +71,12 @@ h1 {
   transform: scaleX(-1);
 }
 
-/* #price {
-  margin-left: 15px;
-} */
-
 #dollar {
   margin-left: 15px;
   margin-right: 5px;
   height:30px;
   width:30px;
 }
-
-/* #foodType {
-
-} */
 
 #fork {
   margin-left:15px;
@@ -98,7 +90,6 @@ h1 {
 .checked {
   color: #da3743;
 }
-
 
 /* -------------------------- TAGS --------------------------- */
 
@@ -149,4 +140,9 @@ h1 {
   border: 2px solid #da3743;
 }
 
-/* ---------------------- DESCRIPTION ----------------------- */
+/* ---------------------- PHOTO GALLERY ----------------------- */
+
+.photos {
+  font-size: 30px;
+  margin-top: 50px;
+}

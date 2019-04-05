@@ -15,3 +15,17 @@ CREATE TABLE restaurants (
   tag2 VARCHAR(25),
   tag3 VARCHAR(25)
 );
+
+CREATE TABLE photos (
+  photo_id int NOT NULL,
+  photo1 VARCHAR(200),
+  photo2 VARCHAR(200),
+  photo3 VARCHAR(200),
+  photo4 VARCHAR(200),
+  photo5 VARCHAR(200),
+  photo6 VARCHAR(200),
+  photo7 VARCHAR(200),
+  photo8 VARCHAR(200),
+  photo9 VARCHAR(200),
+  photo10 VARCHAR(200)
+);

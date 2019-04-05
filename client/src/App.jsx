@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Photos from './components/Photos.jsx'
 
 class App extends React.Component {
   constructor(props) {
@@ -65,6 +65,9 @@ class App extends React.Component {
               <div id="tag3">{data.tag3}</div>
             </div>
             <div id="description">{data.description}</div>
+            <div className="photos">
+              Photos
+            </div>
           </div>
         ))}
       </div>
