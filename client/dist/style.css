@@ -140,6 +140,10 @@ h1 {
   border: 2px solid #da3743;
 }
 
+#description {
+  margin-bottom: 50px;
+}
+
 /* ---------------------- PHOTO GALLERY ----------------------- */
 
 .photos {

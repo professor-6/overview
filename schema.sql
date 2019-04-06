@@ -17,7 +17,6 @@ CREATE TABLE restaurants (
 );
 
 CREATE TABLE photos (
-  photo_id int NOT NULL,
   photo1 VARCHAR(100),
   photo2 VARCHAR(100),
   photo3 VARCHAR(100),

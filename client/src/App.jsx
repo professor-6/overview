@@ -10,13 +10,13 @@ class App extends React.Component {
       restaurants: [],
       photos: [],
       collapse: false,
-      message: 'show more'
+      message: false
     }
     this.toggleCollapse = this.toggleCollapse.bind(this)
   }
 
   componentDidMount() {
-    fetch(`api/restaurants`)
+    fetch(`api/restaurants/1`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -46,13 +46,13 @@ class App extends React.Component {
   toggleCollapse() {
     this.setState({
       collapse: !this.state.collapse,
-      message: ''
+      message: !this.state.message
     });
   }
 
   render() {
     return (
-      <div>
+      <div id="mainOverview">
         {this.state.restaurants.map((data) => (
           <div className="overview">
             <div id="nav-bar">
@@ -91,21 +91,14 @@ class App extends React.Component {
             </div>
             <a onClick={this.toggleCollapse}
             aria-controls="description"
-            aria-expanded={this.state.collapse}>{this.state.message}
+            aria-expanded={this.state.collapse}>{this.state.message ? 'hide' : 'show description'}
             </a>
             <Collapse in={this.state.collapse}>
             <div id="description">{data.description}</div>
             </Collapse>
-            <div className="photos">
-              Photos
-              {this.state.photos.map((photo) => (
-                <div>
-                  <img src={photo.photo1}/>
-                </div>
-              ))}
-            </div>
           </div>
         ))}
+        <Photos />
         </div>
         )
       }

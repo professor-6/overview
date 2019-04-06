@@ -15,7 +15,7 @@ const getDataForId = (id, callback) => {
 
 // returns all restaurants from db
 const getAllRestaurants = (callback) => {
-  connection.query('SELECT * FROM restaurants', (error, results) => {
+  connection.query('SELECT * FROM photos', (error, results) => {
     if (error) {
       console.log('error getting all data', error);
     }
@@ -44,8 +44,8 @@ const generateDataForRestaurants = (id, name, description, rating, reviews, max_
 };
 
 // SQL query to seed photos table: called in data.js
-const generateDataForPhotos = (photo_id, photos, callback) => {
-  connection.query(`INSERT INTO photos VALUES (?,?)`, [photo_id, photos], (error, results) => {
+const generateDataForPhotos = (photos, callback) => {
+  connection.query(`INSERT INTO photos VALUES (?)`, [photos], (error, results) => {
     if (error) {
       console.log('error adding photos to db', error);
     }

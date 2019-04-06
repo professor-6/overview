@@ -2,12 +2,25 @@ import React from 'react';
 import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
 
+const images = [
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-1.jpg', width: 1, height: 1 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-11.jpg', width: 1, height: 1 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-12.jpg', width: 3, height: 4 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-13.jpg', width: 3, height: 4 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-14.jpg', width: 3, height: 4 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-15.jpg', width: 4, height: 3 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-16.jpg', width: 3, height: 4 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-17.jpg', width: 4, height: 3 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-18.jpg', width: 4, height: 3 }
+];
+
 class Photos extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       photos: [],
-      currentImage: 0
+      currentImage: 0,
+      lightboxIsOpen: false
     }
     this.closeLightbox = this.closeLightbox.bind(this);
     this.openLightbox = this.openLightbox.bind(this);
@@ -17,18 +30,16 @@ class Photos extends React.Component {
 
   componentDidMount() {
     fetch(`api/photos`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            photos: result
-          });
-          console.log(this.state.photos[0].photo1)
-        },
-        (error) => {
-          console.log('error w client req to server', error);
-        }
-      )
+    .then(
+      (result) => {
+        this.setState({
+          photos: result
+        });
+      },
+      (error) => {
+        console.log('error w client req to server', error);
+      }
+    )
   };
 
   openLightbox(event, obj) {
@@ -59,9 +70,9 @@ class Photos extends React.Component {
 
   render() {
     return (
-      <div>
-        <Gallery photos={this.state.photos} onClick={this.openLightbox} />
-        <Lightbox images={this.state.photos}
+      <div id="photoGallery">
+        <Gallery photos={images} onClick={this.openLightbox} />
+        <Lightbox images={images}
           onClose={this.closeLightbox}
           onClickPrev={this.gotoPrevious}
           onClickNext={this.gotoNext}
@@ -71,6 +82,6 @@ class Photos extends React.Component {
       </div>
     )
   }
-}
+};
 
 export default Photos;

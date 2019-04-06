@@ -75,7 +75,7 @@ for (var i = 0; i < 100; i++) {
 
 //add photos to each restaurant in photos table
 for (var i = 0; i < 100; i++) {
-  db.generateDataForPhotos(i+1, getData.getPhotos(), (error, results) => {
+  db.generateDataForPhotos(getData.getPhotos(), (error, results) => {
     if (error) {
       console.log('error generating photos (data.js)', error);
     } else {
