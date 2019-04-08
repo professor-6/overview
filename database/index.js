@@ -13,10 +13,9 @@ const getDataForId = (id, callback) => {
   });
 };
 
-
 // returns all restaurants from db
 const getAllRestaurants = (callback) => {
-  connection.query('SELECT * FROM restaurants', (error, results) => {
+  connection.query('SELECT * FROM photos', (error, results) => {
     if (error) {
       console.log('error getting all data', error);
     }
@@ -24,4 +23,40 @@ const getAllRestaurants = (callback) => {
   });
 };
 
-module.exports = { getDataForId, getAllRestaurants };
+// returns all photos from db
+const getAllPhotos = (callback) => {
+  connection.query('SELECT * FROM photos', (error, results) => {
+    if (error) {
+      console.log('server error getting photos', error);
+    }
+    callback(null, results);
+  });
+};
+
+// SQL query to seed restaurants table: called in data.js
+const generateDataForRestaurants = (id, name, description, rating, reviews, max_price, food_type, tag1, tag2, tag3, callback) => {
+  connection.query(`INSERT INTO restaurants VALUES (?,?,?,?,?,?,?,?,?,?)`, [id, name, description, rating, reviews, max_price, food_type, tag1, tag2, tag3], (error, results) => {
+    if (error) {
+      console.log('error generating data', error);
+    }
+    callback(null, results);
+  });
+};
+
+// SQL query to seed photos table: called in data.js
+const generateDataForPhotos = (photos, callback) => {
+  connection.query(`INSERT INTO photos VALUES (?)`, [photos], (error, results) => {
+    if (error) {
+      console.log('error adding photos to db', error);
+    }
+    callback(null, results);
+  });
+};
+
+module.exports = {
+  getAllPhotos,
+  getDataForId,
+  getAllRestaurants,
+  generateDataForRestaurants,
+  generateDataForPhotos
+};
