@@ -3,15 +3,16 @@ import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
 
 const images = [
-  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-1.jpg', width: 1, height: 1 },
-  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-11.jpg', width: 1, height: 1 },
-  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-12.jpg', width: 3, height: 4 },
-  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-13.jpg', width: 3, height: 4 },
-  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-14.jpg', width: 3, height: 4 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-1.jpg', width: 4, height: 3},
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-11.jpg', width: 4, height: 3 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-12.jpg', width: 4, height: 3 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-13.jpg', width: 4, height: 3 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-14.jpg', width: 4, height: 3 },
   { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-15.jpg', width: 4, height: 3 },
-  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-16.jpg', width: 3, height: 4 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-16.jpg', width: 4, height: 3 },
   { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-17.jpg', width: 4, height: 3 },
-  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-18.jpg', width: 4, height: 3 }
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-18.jpg', width: 4, height: 3 },
+  { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-9.jpg', width: 4, height: 3 }
 ];
 
 class Photos extends React.Component {
@@ -20,14 +21,16 @@ class Photos extends React.Component {
     this.state = {
       photos: [],
       currentImage: 0,
-      lightboxIsOpen: false
-    }
+      lightboxIsOpen: false,
+      images: {}
+    };
     this.closeLightbox = this.closeLightbox.bind(this);
     this.openLightbox = this.openLightbox.bind(this);
     this.gotoNext = this.gotoNext.bind(this);
     this.gotoPrevious = this.gotoPrevious.bind(this);
-  }
+  };
 
+// get all photos
   componentDidMount() {
     fetch(`api/photos`)
     .then(
@@ -35,13 +38,15 @@ class Photos extends React.Component {
         this.setState({
           photos: result
         });
+        console.log(result )
       },
       (error) => {
         console.log('error w client req to server', error);
       }
-    )
+    );
   };
 
+  // opens full screen view
   openLightbox(event, obj) {
     this.setState({
       currentImage: obj.index,
@@ -49,6 +54,7 @@ class Photos extends React.Component {
     });
   };
 
+  // closes full screen view
   closeLightbox() {
     this.setState({
       currentImage: 0,
@@ -56,6 +62,7 @@ class Photos extends React.Component {
     });
   };
 
+  // switch between photos
   gotoPrevious() {
     this.setState({
       currentImage: this.state.currentImage - 1,
@@ -70,9 +77,10 @@ class Photos extends React.Component {
 
   render() {
     return (
+
       <div id="photoGallery">
         <Gallery photos={images} onClick={this.openLightbox} />
-        <Lightbox images={images}
+        <Lightbox id="lightBox" images={images}
           onClose={this.closeLightbox}
           onClickPrev={this.gotoPrevious}
           onClickNext={this.gotoNext}
@@ -80,8 +88,8 @@ class Photos extends React.Component {
           isOpen={this.state.lightboxIsOpen}
         />
       </div>
-    )
-  }
+    );
+  };
 };
 
 export default Photos;
