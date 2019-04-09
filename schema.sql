@@ -6,7 +6,7 @@ USE opentable;
 CREATE TABLE restaurants (
   id int NOT NULL,
   name VARCHAR(50),
-  description VARCHAR(500),
+  description VARCHAR(1000),
   rating VARCHAR(4),
   reviews int,
   max_price int,

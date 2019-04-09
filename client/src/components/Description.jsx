@@ -12,12 +12,12 @@ class Description extends React.Component {
     this.toggleCollapse = this.toggleCollapse.bind(this);
   };
 
-
   componentDidMount() {
-    fetch(`api/restaurants/1`)
+    fetch(`/1`)
       .then(res => res.json())
       .then(
         (result) => {
+          console.log(window.location.pathname)
           this.setState({
             restaurants: result
           })
@@ -27,6 +27,24 @@ class Description extends React.Component {
         }
       );
   };
+
+  
+// ---- working on getting the endpoint to work ----
+
+  // componentDidMount() {
+  //   this.getData();
+  // }
+
+  // getData() {
+  //   const id = parseInt(window.location.pathname.split('/').pop());
+  //   console.log(id)
+  //   const self = this;
+  //   fetch(`/${id}`)
+  //     .then(res => res.json())
+  //     .then(result => this.setState({ restaurants: result }))
+  //     .catch((error) => {
+  //       console.log("error", error)});
+  // }
 
   toggleCollapse() {
     this.setState({
