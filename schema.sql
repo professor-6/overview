@@ -1,7 +1,7 @@
-DROP DATABASE opentable;
-CREATE DATABASE opentable;
+DROP DATABASE open_table;
+CREATE DATABASE open_table;
 
-USE opentable;
+USE open_table;
 
 CREATE TABLE restaurants (
   id int NOT NULL,
