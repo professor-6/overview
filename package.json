@@ -11,8 +11,8 @@
   "scripts": {
     "seed": "mysql -u root <schema.sql && node database/data.js",
     "test": "mocha",
-    "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon server/index.js -w database -w server"
+    "build": "webpack -d --watch",
+    "start": "nodemon server/index.js -w database -w server"
   },
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
