@@ -9,20 +9,37 @@ class Overview extends React.Component {
   };
 
   componentDidMount() {
-      fetch(`api/restaurants/1`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            restaurants: result
-          });
-        },
-        (error) => {
-          console.log('error w client req to server', error);
-        }
-      );
+    fetch(`/1`)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        console.log(result)
+        this.setState({
+          restaurants: result
+        });
+      },
+      (error) => {
+        console.log('error w client req to server', error);
+      }
+    );
 }
 
+// ---- working on getting the endpoint to work ----
+
+  // componentDidMount() {
+  //   this.getData();
+  // }
+
+  // getData() {
+  //   const id = parseInt(window.location.pathname.split('/').pop());
+  //   const self = this;
+  //   console.log(id)
+  //   fetch(`/${id}`)
+  //     .then(res => res.json())
+  //     .then(result => this.setState({ restaurants: result }))
+  //     .catch((error) => {
+  //       console.log("error", error)});
+  // }
 
   render() {
     return (

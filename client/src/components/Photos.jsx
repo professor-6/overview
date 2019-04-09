@@ -32,13 +32,12 @@ class Photos extends React.Component {
 
 // get all photos
   componentDidMount() {
-    fetch(`api/photos`)
+    fetch(`/photos`)
     .then(
       (result) => {
         this.setState({
           photos: result
         });
-        console.log(result )
       },
       (error) => {
         console.log('error w client req to server', error);
@@ -77,10 +76,9 @@ class Photos extends React.Component {
 
   render() {
     return (
-
       <div id="photoGallery">
         <Gallery photos={images} onClick={this.openLightbox} />
-        <Lightbox id="lightBox" images={images}
+        <Lightbox images={images}
           onClose={this.closeLightbox}
           onClickPrev={this.gotoPrevious}
           onClickNext={this.gotoNext}
