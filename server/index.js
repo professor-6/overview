@@ -25,16 +25,6 @@ app.get(`/restaurants/:id`, (req, res) => {
   })
 });
 
-// sends all photos from db to this endpoint
-app.get(`/photos`, (req, res) => {
-  db.getAllPhotos( (err, results) => {
-    if (err) {
-      console.log('server error getting all photos', err);
-    }
-    res.send(results);
-  });
-});
-
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
 });

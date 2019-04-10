@@ -1,7 +1,7 @@
-DROP DATABASE open_table;
-CREATE DATABASE open_table;
+DROP DATABASE IF EXISTS opentable_overview;
+CREATE DATABASE opentable_overview;
 
-USE open_table;
+USE opentable_overview;
 
 CREATE TABLE restaurants (
   id int NOT NULL,
@@ -14,17 +14,4 @@ CREATE TABLE restaurants (
   tag1 VARCHAR(25),
   tag2 VARCHAR(25),
   tag3 VARCHAR(25)
-);
-
-CREATE TABLE photos (
-  photo1 VARCHAR(100),
-  photo2 VARCHAR(100),
-  photo3 VARCHAR(100),
-  photo4 VARCHAR(100),
-  photo5 VARCHAR(100),
-  photo6 VARCHAR(100),
-  photo7 VARCHAR(100),
-  photo8 VARCHAR(100),
-  photo9 VARCHAR(100),
-  photo10 VARCHAR(100)
 );
