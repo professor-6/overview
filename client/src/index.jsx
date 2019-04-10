@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Overview from './components/Overview.jsx';
 import Info from './components/Info.jsx';
 import Description from './components/Description.jsx';
 import Photos from './components/Photos.jsx'
+import Navigation from './components/Navigation.jsx';
 
-class App extends React.Component {
+class Overview extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -13,7 +13,7 @@ class App extends React.Component {
   render() {
     return (
       <div id="mainOverview">
-        <Overview />
+        <Navigation />
         <Info />
         <Description />
         <Photos />
@@ -22,6 +22,6 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Overview />, document.getElementById('app-overview'));
 
-export default App;
+export default Overview;
