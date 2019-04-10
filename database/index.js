@@ -13,16 +13,6 @@ const getDataForId = (id, callback) => {
   });
 };
 
-// returns all restaurants from db
-const getAllRestaurants = (callback) => {
-  connection.query('SELECT * FROM photos', (error, results) => {
-    if (error) {
-      console.log('error getting all data', error);
-    }
-    callback(null, results);
-  });
-};
-
 // returns all photos from db
 const getAllPhotos = (callback) => {
   connection.query('SELECT * FROM photos', (error, results) => {
@@ -56,7 +46,6 @@ const generateDataForPhotos = (photos, callback) => {
 module.exports = {
   getAllPhotos,
   getDataForId,
-  getAllRestaurants,
   generateDataForRestaurants,
   generateDataForPhotos
 };

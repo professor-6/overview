@@ -33,8 +33,10 @@ class Photos extends React.Component {
 // get all photos
   componentDidMount() {
     fetch(`/photos`)
+    .then(res => res.json())
     .then(
       (result) => {
+        console.log(result);
         this.setState({
           photos: result
         });
