@@ -30,23 +30,6 @@ class Photos extends React.Component {
     this.gotoPrevious = this.gotoPrevious.bind(this);
   };
 
-// get all photos
-  componentDidMount() {
-    fetch(`/photos`)
-    .then(res => res.json())
-    .then(
-      (result) => {
-        console.log(result);
-        this.setState({
-          photos: result
-        });
-      },
-      (error) => {
-        console.log('error w client req to server', error);
-      }
-    );
-  };
-
   // opens full screen view
   openLightbox(event, obj) {
     this.setState({
