@@ -1,13 +1,12 @@
-# Project Name
-
-> Project description
+# OpenTable FEC
+> A service which finds all of the information you may need about nearby restaurants (menu, location, hours, description, reviews, etc.), and allows you to make reservations. This service includes the overview and photo gallery modules.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/professor-6/service_sydney
+  - https://github.com/professor-6/service-reservation-aysun
+  - https://github.com/professor-6/service-menu-rebecca
+  - https://github.com/professor-6/service_reviews_ike
 
 ## Table of Contents
 
