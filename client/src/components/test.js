@@ -4,7 +4,7 @@ describe('starting express server', function () {
   var server;
 
   beforeEach(function () {
-    server = require('../server/index.js');
+    server = require('../../../server/index.js');
   });
 
   afterEach(function (done) {

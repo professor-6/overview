@@ -8,16 +8,16 @@ class Description extends React.Component {
       restaurants: [],
       collapse: false,
       message: false,
-    }
+      urlID: window.location.pathname.slice(1)
+    };
     this.toggleCollapse = this.toggleCollapse.bind(this);
   };
 
   componentDidMount() {
-    fetch(`/1`)
+    fetch(`/restaurants/${this.state.urlID}`)
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(window.location.pathname)
           this.setState({
             restaurants: result
           })
@@ -27,24 +27,6 @@ class Description extends React.Component {
         }
       );
   };
-
-  
-// ---- working on getting the endpoint to work ----
-
-  // componentDidMount() {
-  //   this.getData();
-  // }
-
-  // getData() {
-  //   const id = parseInt(window.location.pathname.split('/').pop());
-  //   console.log(id)
-  //   const self = this;
-  //   fetch(`/${id}`)
-  //     .then(res => res.json())
-  //     .then(result => this.setState({ restaurants: result }))
-  //     .catch((error) => {
-  //       console.log("error", error)});
-  // }
 
   toggleCollapse() {
     this.setState({

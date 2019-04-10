@@ -5,12 +5,13 @@ class Info extends React.Component {
     super(props);
     this.state = {
       restaurants: [],
-      rating: 0
+      rating: 0,
+      urlID: window.location.pathname.slice(1)
     };
   };
 
   componentDidMount() {
-    fetch(`/1`)
+    fetch(`/restaurants/${this.state.urlID}`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -22,39 +23,12 @@ class Info extends React.Component {
               rating: item.rating
             })
           })
-          console.log(this.state.rating)
         },
         (error) => {
           console.log('error w client req to server', error);
         }
       );
   };
-
-
-// ---- working on getting the endpoint to work ----
-
-  // componentDidMount() {
-  //   this.getData();
-  // }
-
-  // getData() {
-  //   const id = parseInt(window.location.pathname.split('/').pop());
-  //   const self = this;
-  //   console.log(id)
-  //   fetch(`/${id}`)
-  //     .then(res => res.json())
-  //     .then((result) => {
-  //       this.setState({ restaurants: result })
-  //       result.map((item) => {
-  //         this.setState({
-  //           rating: item.rating
-  //         })
-  //       })
-  //     })
-  //     .catch((error) => {
-  //       console.log("error", error)
-  //     });
-  // }
 
   render() {
     return (
