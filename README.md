@@ -19,11 +19,12 @@
 > Some usage instructions
 
 From within the root directory:
-To run webpack:
+
+- To run webpack:
   ```npm run build```
-To start the server:
+- To start the server:
   ```npm run start```
-To seed the database:
+- To seed the database:
   ```npm run seed```
   
 ## Requirements
