@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './info.css';
 
 class Info extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Info extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`/restaurants/${this.state.urlID}`)
+    fetch(`/restaurants/${this.state.urlID}` || `/restaurants/1`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -31,41 +32,49 @@ class Info extends React.Component {
   };
 
   render() {
+    const star = {
+      color: '#da3743'
+    };
     return (
-      <div id="mainOverview">
+      <div className="mainOverview">
         {this.state.restaurants.map((data) => (
           <div>
-            <div id="info">
-              <div id="rating">
-                <span className={this.state.rating < 1 ?
-                  "fa fa-star" : "fa fa-star checked"}></span>
-                <span className={this.state.rating < 2 ?
-                  "fa fa-star" : "fa fa-star checked"}></span>
-                <span className={this.state.rating < 3 ?
-                  "fa fa-star" : "fa fa-star checked"}></span>
-                <span className={this.state.rating < 4 ?
-                  "fa fa-star" : "fa fa-star checked"}></span>
-                <span className={this.state.rating < 5 ?
-                  "fa fa-star" : "fa fa-star checked"}></span>
+            <div className={styles.info}>
+              <div className="rating">
+              {this.state.rating < 1 ?
+                <span className="fa fa-star"/> :
+                <span className="fa fa-star checked" style={star}/>}
+              {this.state.rating < 2 ?
+                <span className="fa fa-star"/> :
+                <span className="fa fa-star checked" style={star}/>}
+              {this.state.rating < 3 ?
+                <span className="fa fa-star"/> :
+                <span className="fa fa-star checked" style={star}/>}
+              {this.state.rating < 4 ?
+                <span className="fa fa-star"/> :
+                <span className="fa fa-star checked" style={star}/>}
+              {this.state.rating < 5 ?
+                <span className="fa fa-star"/> :
+                <span className="fa fa-star checked" style={star}/>}
                 {data.rating}
               </div>
-              <div id="numOfReviews">
-                <img id="speech" src="https://static.thenounproject.com/png/229790-200.png" />
+              <div className={styles.numOfReviews}>
+                <img className={styles.speech} src="https://static.thenounproject.com/png/229790-200.png" />
                 {data.reviews}
               </div>
-              <img id="dollar" src="https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/money_dollar.png" />
-              <div id="price">${data.max_price} and under
+              <img className={styles.dollar} src="https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/green_dark_grey/512x512/plain/money_dollar.png" />
+              <div className="price">${data.max_price} and under
             </div>
-              <img id="fork" src="https://image.flaticon.com/icons/png/512/14/14222.png" />
-              <div id="foodType">
+              <img className={styles.fork} src="https://image.flaticon.com/icons/png/512/14/14222.png" />
+              <div className="foodType">
                 {data.food_type}
               </div>
             </div>
-            <div id="tags">
-              <div id="topTags">Top Tags:</div>
-              <div id="tag1">{data.tag1}</div>
-              <div id="tag2">{data.tag2}</div>
-              <div id="tag3">{data.tag3}</div>
+            <div className={styles.tags}>
+              <div className={styles.topTags}>Top Tags:</div>
+              <div className={styles.tag1}>{data.tag1}</div>
+              <div className={styles.tag2}>{data.tag2}</div>
+              <div className={styles.tag3}>{data.tag3}</div>
             </div>
           </div>
         ))}

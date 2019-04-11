@@ -9,6 +9,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/../client/dist'));
 
+// // redirect user to restaurant 1 from homepage
+// app.get('/', (req, res) => {
+//   res.redirect(`/1`);
+// });
+
 // gets data for id endpoint
 app.get(`/:id`, (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/dist/index.html'))

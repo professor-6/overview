@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapse from 'react-bootstrap/Collapse';
+import styles from './description.css';
 
 class Description extends React.Component {
   constructor(props) {
@@ -39,8 +40,8 @@ class Description extends React.Component {
     return (
       <div id="description">
         {this.state.restaurants.map((data) => (
-          <div className="description">
-            <a id="collapse" onClick={this.toggleCollapse}
+          <div className={styles.description}>
+            <a className={styles.collapse} onClick={this.toggleCollapse}
               aria-controls="description"
               aria-expanded={this.state.collapse}>{this.state.message ? '- Read less' : '+ Read more'}
             </a>
@@ -49,7 +50,7 @@ class Description extends React.Component {
             </Collapse>
           </div>
         ))}
-        <div id="photosText">
+        <div className={styles.photosText}>
           Photos
         </div>
       </div>

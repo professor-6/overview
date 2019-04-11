@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin Sans');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.info {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  width: 600px;
+  font-size: 16px;
+  flex-direction: row;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 200px;
+  font-family: 'Josefin Sans';
+}
+
+.numOfReviews {
+  margin-left: 15px;
+}
+
+.checked {
+  color: #da3743;
+}
+
+.speech {
+  margin-right: 5px;
+  height:15px;
+  width:15px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.dollar {
+  margin-left: 15px;
+  margin-right: 5px;
+  height:30px;
+  width:30px;
+}
+
+.fork {
+  margin-left:15px;
+  margin-right: 5px;
+  height:25px;
+  width:25px;
+}
+
+/* ---------------- TAGS ---------------- */
+
+.tags {
+  display: flex;
+  width: 650px;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  margin-left: 200px;
+  font-family: 'Josefin Sans'
+}
+
+.topTags {
+  font-size: 20px;
+}
+
+.tag1 {
+  font-size: 14px;
+  margin-left: 20px;
+  padding: 8px;
+  margin-right: 5px;
+  border: 1px solid lightgrey;
+  border-radius: 50px;
+}
+
+.tag1:hover {
+  border: 2px solid #da3743;
+  cursor: pointer;
+}
+
+.tag2 {
+  font-size: 14px;
+  padding: 8px;
+  margin-right: 5px;
+  border: 1px solid lightgrey;
+  border-radius: 50px;
+}
+
+.tag2:hover {
+  border: 2px solid #da3743;
+  cursor: pointer;
+}
+
+.tag3 {
+  font-size: 14px;
+  padding: 8px;
+  border: 1px solid lightgrey;
+  border-radius: 50px;
+}
+
+.tag3:hover {
+  border: 2px solid #da3743;
+  cursor: pointer;
+}

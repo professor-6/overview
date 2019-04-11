@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin Sans');
+
+#navBar {
+  display: flex;
+  justify-content: space-around;
+  font-size: 15px;
+  width: 500px;
+  margin-top: 100px;
+  position: sticky;
+  margin-left: 200px;
+  font-family: 'Josefin Sans'
+}
+
+#overview:hover {
+  color: #da3743;
+  border-bottom: 2px solid #da3743;
+  cursor: pointer;
+}
+
+#photos:hover {
+  color: #da3743;
+  border-bottom: 2px solid #da3743;
+  cursor: pointer;
+}
+
+#menu:hover {
+  color: #da3743;
+  border-bottom: 2px solid #da3743;
+  cursor: pointer;
+}
+
+#reviews:hover {
+  color: #da3743;
+  border-bottom: 2px solid #da3743;
+  cursor: pointer;
+}
+
+/* ------------------------- NAME --------------------------- */
+
+.name {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 60px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  margin-left: 200px;
+  width: 600px;
+}

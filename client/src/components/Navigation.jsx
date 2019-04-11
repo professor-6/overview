@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './navigation.css';
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Navigation extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`/restaurants/${this.state.urlID}`)
+    fetch(`/restaurants/${this.state.urlID}` || `/restaurants/1`)
     .then(res => res.json())
     .then(
       (result) => {
@@ -26,15 +27,15 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <div className="overview">
-        <div id="nav-bar">
-          <div id="overview">Overview</div>
-          <div id="photos">Photos</div>
-          <div id="menu">Menu</div>
-          <div id="reviews">Reviews</div>
+      <div className={styles.overview}>
+        <div id={styles.navBar}>
+          <div id={styles.overview}>Overview</div>
+          <div id={styles.photos}>Photos</div>
+          <div id={styles.menu}>Menu</div>
+          <div id={styles.reviews}>Reviews</div>
         </div>
         {this.state.restaurants.map((data) => (
-        <h1 className="name">{data.name}</h1>
+        <h1 className={styles.name}>{data.name}</h1>
         ))}
       </div>
     );

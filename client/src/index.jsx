@@ -4,6 +4,7 @@ import Info from './components/Info.jsx';
 import Description from './components/Description.jsx';
 import Photos from './components/Photos.jsx'
 import Navigation from './components/Navigation.jsx';
+import Logo from './components/Logo.jsx';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Overview extends React.Component {
   render() {
     return (
       <div id="mainOverview">
+        <Logo />
         <Navigation />
         <Info />
         <Description />
