@@ -1,6 +1,7 @@
 import React from 'react';
 import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
+import styles from './photos.css';
 
 const images = [
   { src: 'https://s3.amazonaws.com/open-table-fec/FEC+PICS/download-1.jpg', width: 4, height: 3},
@@ -61,7 +62,7 @@ class Photos extends React.Component {
 
   render() {
     return (
-      <div id="photoGallery">
+      <div id={styles.photoGallery}>
         <Gallery photos={images} onClick={this.openLightbox} />
         <Lightbox images={images}
           onClose={this.closeLightbox}

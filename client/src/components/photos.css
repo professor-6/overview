@@ -1,0 +1,17 @@
+#photoGallery {
+  width:600px;
+  height: 200px;
+  margin-left: 200px;
+}
+
+/* thumnail of image */
+img {
+  height: 75px;
+  width: 100px;
+}
+
+/* full screen image loaded */
+.image_1swebtw-o_O-imageLoaded_zgbg08 {
+  height: 350px;
+  width: 600px;
+}
