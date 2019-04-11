@@ -17,7 +17,15 @@
 ## Usage
 
 > Some usage instructions
-
+```sh
+From within the root directory:
+[] To run webpack:
+  -npm run build
+[] To start the server:
+  -npm run start
+[] To seed the database:
+  -npm run seed
+```
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
