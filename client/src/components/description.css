@@ -11,15 +11,15 @@
 }
 
 .description {
-  margin-left: 200px;
   font-size: 15px;
-  width: 600px;
+  width: 608px;
   font-family: 'Josefin Sans';
 }
 
 .photosText {
+  border-top: 1px solid lightgrey;
   font-size:30px;
-  margin-left: 200px;
   margin-top: 50px;
   font-family: 'Josefin Sans';
+  width:608px;
 }
