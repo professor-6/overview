@@ -14,7 +14,6 @@ class Overview extends React.Component {
   render() {
     return (
       <div id="mainOverview">
-        <Logo />
         <Navigation />
         <Info />
         <Description />
@@ -25,5 +24,5 @@ class Overview extends React.Component {
 }
 
 ReactDOM.render(<Overview />, document.getElementById('app-overview'));
-
+ReactDOM.render(<Logo />, document.getElementById('logo'));
 export default Overview;
