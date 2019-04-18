@@ -26,7 +26,7 @@ From within the root directory:
   ```npm run start```
 - To seed the database:
   ```npm run seed```
-  
+
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
@@ -44,4 +44,11 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+### CRUD API
 
+| intention                                                       | request type | request url       | request body                                                          | side effect                                                     | response body                                                                                                                           |
+|-----------------------------------------------------------------|--------------|-------------------|-----------------------------------------------------------------------|-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| Read info. for current restaurant                           | GET          | /restaurants/:id | none                                                                  | none                                                            | {description:"...", food_type: "Japanese", id: 1, max_price: 54, name: "Pollich LLC", rating: "2.7", reviews: 399, tag1: "healthy", tag2: "casual", tag3: "fit for foodies"} |
+| Create info. for single restaurant                | POST         | /restaurants/:id | {descrption: '...', food_type: "Thai", id: 5, max_price: 133, name: "Jacobs - Heaney", rating: "2.6", reviews: 854, tag1: healthy", tag2: "good for business", tag3: "tasty"}   | add restaurant and its data to database                     |  {descrption: '...', food_type: "Thai", id: 5, max_price: 133, name: "Jacobs - Heaney", rating: "2.6", reviews: 854, tag1: healthy", tag2: "good for business", tag3: "tasty"}                                                                       |
+| Update info. for target restaurant     | PUT          | /restaurants/:id | {id: 5, food_type: "Mexican"}   | overwrite target data in database         | {descrption: '...', food_type: "Mexican", id: 5, max_price: 133, name: "Jacobs - Heaney", rating: "2.6", reviews: 854, tag1: healthy", tag2: "good for business", tag3: "tasty"}                                                                   |
+| Delete target restaurant from database | DELETE       | /restaurants/:id | {id: 5}          | delete specified movie name and associated videos from database | {descrption: '...', food_type: "Mexican", id: 5, max_price: 133, name: "Jacobs - Heaney", rating: "2.6", reviews: 854, tag1: healthy", tag2: "good for business", tag3: "tasty"}                                                                           |
