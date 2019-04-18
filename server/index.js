@@ -32,6 +32,21 @@ app.get(`/:id`, (req, res) => {
   })
 });
 
+app.post(`/restaurants/:id`, (req, res) => {
+  let id = req.params.id;
+  res.send(`create record with id: ${id}`)
+});
+
+app.put(`/restaurants/:id`, (req, res) => {
+  let id = req.params.id;
+  res.send(`update record with id: ${id}`)
+});
+
+app.delete(`/restaurants/:id`, (req, res) => {
+  let id = req.params.id;
+  res.send(`delete record with id: ${id}`)
+});
+
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
 });
