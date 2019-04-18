@@ -9,13 +9,14 @@ class Description extends React.Component {
       restaurants: [],
       collapse: false,
       message: false,
-      urlID: window.location.pathname.slice(1)
+      // urlID: window.location.pathname.slice(1)
     };
     this.toggleCollapse = this.toggleCollapse.bind(this);
   };
 
   componentDidMount() {
-    fetch(`/restaurants/${this.state.urlID}`)
+    let urlID = window.location.pathname.slice(12);
+    fetch(`${urlID}`)
       .then(res => res.json())
       .then(
         (result) => {

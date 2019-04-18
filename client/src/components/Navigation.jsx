@@ -11,7 +11,8 @@ class Navigation extends React.Component {
   };
 
   componentDidMount() {
-    fetch(`/restaurants/${this.state.urlID}` || `/restaurants/1`)
+    let urlID = window.location.pathname.slice(12);
+    fetch(`${urlID}` || `/restaurants/1`)
     .then(res => res.json())
     .then(
       (result) => {

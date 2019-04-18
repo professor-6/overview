@@ -7,15 +7,19 @@ class Info extends React.Component {
     this.state = {
       restaurants: [],
       rating: 0,
-      urlID: window.location.pathname.slice(1)
+      // urlID: window.location.pathname.slice(1)
     };
   };
 
+
   componentDidMount() {
-    fetch(`/restaurants/${this.state.urlID}` || `/restaurants/1`)
+    let urlID = window.location.pathname.slice(12);
+    // console.log(urlID)
+    fetch(`${urlID}` || `/restaurants/1`)
       .then(res => res.json())
       .then(
         (result) => {
+          console.log(result)
           this.setState({
             restaurants: result
           });
