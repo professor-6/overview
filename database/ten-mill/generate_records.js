@@ -9,9 +9,9 @@ const generate1000Records = () => {
 
     record.id = i;
     record.name = data.names[i];
-    record.description = getDescription();
+    // record.description = getDescription();
     record.rating = getRating();
-    record.reviews = getReviews();
+    // record.reviews = getReviews();
     record.maxPrice = getMaxPrice();
     record.foodType = getFoodType();
     record.tag1 = getTag1();
@@ -33,7 +33,7 @@ const generateOneMill = () => {
 
 
 const writeOneMill = () => {
-  console.log(`You've hit Promise #${count}`);
+  console.log(`You've hit Promise #${count}`)
   return new Promise ((res, rej) => {
     fs.writeFile(`records${count}.json`, generateOneMill(), (err) => {
       if (err) {
@@ -46,8 +46,8 @@ const writeOneMill = () => {
   })
 }
 
+let count = 1;
 const writeTenMill = () => {
-  let count = 1;
   writeOneMill()
   .then (writeOneMill)
   .then (writeOneMill)
