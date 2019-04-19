@@ -57,12 +57,15 @@ const getData = {
 };
 
 // adds 100 rows of data to restaurants table
-for (var i = 0; i < 100; i++) {
-  db.generateDataForRestaurants(i+1, data.names[i], getData.getDescription(), getData.getRating(), getData.getReviews(), getData.getMaxPrice(), getData.getFoodType(), getData.getTag1(), getData.getTag2(), getData.getTag3(), (error, results) => {
-    if (error) {
-      console.log('error generating data (data.js)', error);
-    } else {
-      console.log('Successfully seeded db');
-    }
-  });
-};
+// for (var i = 0; i < 100; i++) {
+//   db.generateDataForRestaurants(i+1, data.names[i], getData.getDescription(), getData.getRating(), getData.getReviews(), getData.getMaxPrice(), getData.getFoodType(), getData.getTag1(), getData.getTag2(), getData.getTag3(), (error, results) => {
+//     if (error) {
+//       console.log('error generating data (data.js)', error);
+//     } else {
+//       console.log('Successfully seeded db');
+//     }
+//   });
+// };
+
+
+module.exports = { data, getData };
