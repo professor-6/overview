@@ -1,15 +1,10 @@
 const { data, getData } = require ('../data.js');
 const fs = require('fs');
-
 const {getDescription, getRating, getReviews, getMaxPrice, getFoodType, getTag1, getTag2, getTag3} = getData;
 
-let counter = 0;
-
-const generate1000Records = (start, stop) => {
+const generate1000Records = () => {
   let records = [];
-  start = start || 0;
-  stop = stop || 1000;
-  for (let i = start; i < stop; i++) {
+  for (let i = 0; i < 1000; i++) {
     let record = {};
 
     record.id = i;
@@ -28,29 +23,41 @@ const generate1000Records = (start, stop) => {
   return records;
 }
 
-
-
 const generateOneMill = () => {
   let oneMill = [];
-  for (let j = 0; j < 100; j++) {
-    oneMill = oneMill.concat(generate1000Records())
+  for (let j = 0; j < 1000; j++) {
+    oneMill = oneMill.concat(generate1000Records());
   }
-  return oneMill;
+  return JSON.stringify(oneMill);
+}
+
+
+const writeOneMill = () => {
+  console.log(`You've hit Promise #${count}`);
+  return new Promise ((res, rej) => {
+    fs.writeFile(`records${count}.json`, generateOneMill(), (err) => {
+      if (err) {
+        rej(err);
+      } else {
+        count++;
+        res(generateOneMill())
+      }
+    })
+  })
 }
 
 const writeTenMill = () => {
-  for (let i = 0; i < 100; i++) {
-    fs.writeFile(`records${i}.json`, JSON.stringify(generateOneMill()), (err) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      console.log('nice job buddy');
-    })
-  }
+  let count = 1;
+  writeOneMill()
+  .then (writeOneMill)
+  .then (writeOneMill)
+  .then (writeOneMill)
+  .then (writeOneMill)
+  .then (writeOneMill)
+  .then (writeOneMill)
+  .then (writeOneMill)
+  .then (writeOneMill)
+  .then (writeOneMill)
 }
 
 writeTenMill();
-
-
-// data.names[i], getData.getDescription(), getData.getRating(), getData.getReviews(), getData.getMaxPrice(), getData.getFoodType(), getData.getTag1(), getData.getTag2(), getData.getTag3()
