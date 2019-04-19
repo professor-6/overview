@@ -9,9 +9,9 @@ const generate1000Records = () => {
 
     record.id = i;
     record.name = data.names[i];
-    // record.description = getDescription();
+    record.description = getDescription();
     record.rating = getRating();
-    // record.reviews = getReviews();
+    record.reviews = getReviews();
     record.maxPrice = getMaxPrice();
     record.foodType = getFoodType();
     record.tag1 = getTag1();
