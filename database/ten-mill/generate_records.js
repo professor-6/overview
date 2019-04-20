@@ -1,5 +1,8 @@
-const { data, getData } = require ('../data.js');
 const fs = require('fs');
+const csvWriter = require('csv-write-stream');
+const writer = csvWriter();
+
+const { data, getData } = require ('../data.js');
 const {getDescription, getRating, getReviews, getMaxPrice, getFoodType, getTag1, getTag2, getTag3} = getData;
 
 const generate1000Records = () => {
