@@ -1,14 +1,17 @@
-const { data, getData } = require ('../data.js');
 const fs = require('fs');
+const csvWriter = require('csv-write-stream');
+
+const { data, getData } = require ('../data.js');
 const {getDescription, getRating, getReviews, getMaxPrice, getFoodType, getTag1, getTag2, getTag3} = getData;
+
+const randomId = () => {return Math.floor(Math.random() * 100)};
 
 const generate1000Records = () => {
   let records = [];
   for (let i = 0; i < 1000; i++) {
     let record = {};
 
-    record.id = i;
-    record.name = data.names[i];
+    record.name = data.names[randomId()];
     record.description = getDescription();
     record.rating = getRating();
     record.reviews = getReviews();
@@ -23,26 +26,23 @@ const generate1000Records = () => {
   return records;
 }
 
-const generateOneMill = () => {
-  let oneMill = [];
-  for (let j = 0; j < 1000; j++) {
-    oneMill = oneMill.concat(generate1000Records());
-  }
-  return JSON.stringify(oneMill);
-}
-
-
 const writeOneMill = () => {
-  console.log(`You've hit Promise #${count}`)
+  console.log(`You've hit Promise # ${count}`);
+
   return new Promise ((res, rej) => {
-    fs.writeFile(`records${count}.json`, generateOneMill(), (err) => {
-      if (err) {
-        rej(err);
-      } else {
-        count++;
-        res(generateOneMill())
-      }
-    })
+    let writer = csvWriter();
+    writer.on('error', (err) => {rej(err);});
+    writer.on('end', () => res(generate1000Records()));
+    writer.pipe(fs.createWriteStream(`record-${count}.csv`));
+
+    for (let i = 0; i < 1000; i++) {
+      generate1000Records().forEach((record) => {
+        writer.write(record);
+      });
+    }
+
+    writer.end();
+    count++;
   })
 }
 
