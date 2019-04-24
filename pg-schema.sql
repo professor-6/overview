@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS open_table_reviews;
 
 
 CREATE TABLE open_table_reviews(
-  id SERIAL,
+  id SERIAL PRIMARY KEY,
   name VARCHAR(50),
   description text,
   rating decimal,
