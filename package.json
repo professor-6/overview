@@ -37,6 +37,7 @@
     "react-lightbox-component": "^1.2.1",
     "react-photo-gallery": "^6.3.2",
     "react-test-renderer": "^16.8.6",
+    "sequelize": "^5.7.5",
     "style-loader": "^0.23.1",
     "supertest": "^4.0.2",
     "webpack": "^2.2.1"
