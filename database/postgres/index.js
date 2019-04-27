@@ -15,7 +15,7 @@ exports.getDataForId = (id, callback, confirmationOnly) => {
       callback('ERROR: Target data no longer exists!');
     }
   });
-}
+};
 
 exports.deleteById = (id, callback) => {
   let queryString = `UPDATE open_table_reviews SET isdeleted = true WHERE id = ${id}`;
@@ -23,8 +23,24 @@ exports.deleteById = (id, callback) => {
   .then(() => {
     exports.getDataForId(id, callback, true);
   })
-}
+};
 
+exports.updateById = (id, updateObj, callback) => {
+  let queryString ='UPDATE open_table_reviews SET ';
+  for (let key in updateObj) {
+    if (typeof updateObj === 'string') {
+      queryString += `${key} = '${updateObj[key]}', `;
+    } else {
+      queryString += `${key} = ${updateObj[key]}, `
+    }
+  }
+  queryString = `${queryString.substr(0, queryString.length - 2)} WHERE id = ${id}`;
+
+  sequelize.query(queryString)
+  .then(() => {
+    exports.getDataForId(id, callback, true);
+  });
+}
 exports.addRecord = (record, callback) => {
   const {name, description, rating, reviews, max_price, food_type, tag1, tag2, tag3, isdeleted} = record;
 
@@ -32,4 +48,4 @@ exports.addRecord = (record, callback) => {
 
   sequelize.query(queryString)
   .then((results) => callback(results));
-}
+};

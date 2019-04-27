@@ -26,10 +26,12 @@ app.post(`/:id`, (req, res) => {
   })
 });
 
-  // app.put(`/restaurants/:id`, (req, res) => {
-    //   let id = req.params.id;
-    //   res.send(`update record with id: ${id}`)
-    // });
+app.put(`/:id`, (req, res) => {
+    let id = req.params.id;
+    db.updateById(id, req.body, (results) => {
+      res.send(results);
+    })
+});
 
 app.delete(`/:id`, (req, res) => {
   let id = req.params.id;
