@@ -20,6 +20,7 @@ const generate1000Records = () => {
     record.tag1 = getTag1();
     record.tag2 = getTag2();
     record.tag3 = getTag3();
+    record.isDeleted = false;
 
     records.push(record);
   }

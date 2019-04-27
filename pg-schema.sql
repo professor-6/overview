@@ -11,7 +11,8 @@ CREATE TABLE open_table_reviews(
   food_type VARCHAR(25),
   tag1 VARCHAR(25),
   tag2 VARCHAR(25),
-  tag3 VARCHAR(25)
+  tag3 VARCHAR(25),
+  is_deleted boolean
 );
 
 \COPY open_table_reviews (name, description, rating, reviews, max_price, food_type, tag1, tag2, tag3) FROM '/home/chagil/service_sydney/database/ten-mill/record-1.csv' WITH DELIMITER ',' CSV Header
