@@ -28,7 +28,7 @@ exports.deleteById = (id, callback) => {
 exports.updateById = (id, updateObj, callback) => {
   let queryString ='UPDATE open_table_reviews SET ';
   for (let key in updateObj) {
-    if (typeof updateObj === 'string') {
+    if (typeof updateObj[key] === 'string') {
       queryString += `${key} = '${updateObj[key]}', `;
     } else {
       queryString += `${key} = ${updateObj[key]}, `;
