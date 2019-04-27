@@ -10,7 +10,7 @@ exports.getDataForId = (id, callback, confirmationOnly) => {
   .then(data => {
     let record = data[0];
     if (confirmationOnly || !record.isdeleted) {
-      callback(record);
+      callback(data);
     } else {
       callback('ERROR: Target data no longer exists!');
     }
@@ -31,7 +31,7 @@ exports.updateById = (id, updateObj, callback) => {
     if (typeof updateObj === 'string') {
       queryString += `${key} = '${updateObj[key]}', `;
     } else {
-      queryString += `${key} = ${updateObj[key]}, `
+      queryString += `${key} = ${updateObj[key]}, `;
     }
   }
   queryString = `${queryString.substr(0, queryString.length - 2)} WHERE id = ${id}`;
@@ -41,6 +41,7 @@ exports.updateById = (id, updateObj, callback) => {
     exports.getDataForId(id, callback, true);
   });
 }
+
 exports.addRecord = (record, callback) => {
   const {name, description, rating, reviews, max_price, food_type, tag1, tag2, tag3, isdeleted} = record;
 

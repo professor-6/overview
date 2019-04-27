@@ -16,6 +16,7 @@ app.get('/favicon.ico', (req, res) => res.status(204));
 app.get(`/:id`, (req, res) => {
   let id = req.params.id;
   db.getDataForId(id, (results) => {
+    console.log(id, results)
     res.send(results);
   });
 });
