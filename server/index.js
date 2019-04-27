@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const db = require('../database/index.js');
+// const db = require('../database/index.js');
+const db = require('../database/postgres/index.js');
 const path = require('path');
 const port = process.env.PORT || 3003;
 
@@ -24,12 +25,18 @@ app.use('/restaurants/:id', express.static(staticPath));
 // dynamic endpoint -> /api/restaurants/14 renders data for restaurant 14.
 app.get(`/:id`, (req, res) => {
   let id = req.params.id;
-  db.getDataForId(id, (err, results) => {
-    if (err) {
-      console.log('error getting data in server', err);
-    }
+  db.getDataForId(id, (results) => {
     res.send(results);
   })
+
+  //==============LEGACY CODE=================//
+  // db.getDataForId(id, (err, results) => {
+  //   if (err) {
+  //     console.log('error getting data in server', err);
+  //   }
+  //   res.send(results);
+  // })
+  //======================================//
 });
 
 app.post(`/restaurants/:id`, (req, res) => {
@@ -50,3 +57,4 @@ app.delete(`/restaurants/:id`, (req, res) => {
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
 });
+
