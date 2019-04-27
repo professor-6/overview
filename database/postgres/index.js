@@ -4,23 +4,32 @@ const sequelize = new Sequelize('open_table', 'postgres', 'hrr37', {
   dialect: 'postgres'
 });
 
-exports.getDataForId = (id, callback) => {
+exports.getDataForId = (id, callback, confirmationOnly) => {
   let queryString = `SELECT * FROM open_table_reviews WHERE id = ${id}`;
   sequelize.query(queryString, {type: sequelize.QueryTypes.SELECT})
-  .then(record => {callback(record)});
+  .then(data => {
+    let record = data[0];
+    if (confirmationOnly || !record.isdeleted) {
+      callback(record);
+    } else {
+      callback('ERROR: Target data no longer exists!');
+    }
+  });
 }
 
 exports.deleteById = (id, callback) => {
   let queryString = `UPDATE open_table_reviews SET isdeleted = true WHERE id = ${id}`;
   sequelize.query(queryString)
   .then(() => {
-    exports.getDataForId(id, callback);
+    exports.getDataForId(id, callback, true);
   })
 }
 
 exports.addRecord = (record, callback) => {
   const {name, description, rating, reviews, max_price, food_type, tag1, tag2, tag3, isdeleted} = record;
+
   let queryString = `INSERT INTO open_table_reviews (name, description, rating, reviews, max_price, food_type, tag1, tag2, tag3, isDeleted) VALUES ('${name}', '${description}', ${rating}, ${reviews}, ${max_price}, '${food_type}', '${tag1}', '${tag2}', '${tag3}', ${isdeleted})`;
+
   sequelize.query(queryString)
   .then((results) => callback(results));
 }
