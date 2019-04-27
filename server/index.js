@@ -18,37 +18,29 @@ app.get(`/:id`, (req, res) => {
   db.getDataForId(id, (results) => {
     res.send(results);
   });
+});
 
-  //==============LEGACY CODE=================//
-  // db.getDataForId(id, (err, results) => {
-    //   if (err) {
-      //     console.log('error getting data in server', err);
-      //   }
-      //   res.send(results);
-      // })
-      //======================================//
-    });
+app.post(`/:id`, (req, res) => {
+  db.addRecord(req.body, (results)=> {
+    res.send(results);
+  })
+});
 
-    // app.post(`/restaurants/:id`, (req, res) => {
-      //   let id = req.params.id;
-      //   res.send(`create record with id: ${id}`)
-      // });
+  // app.put(`/restaurants/:id`, (req, res) => {
+    //   let id = req.params.id;
+    //   res.send(`update record with id: ${id}`)
+    // });
 
-      // app.put(`/restaurants/:id`, (req, res) => {
-        //   let id = req.params.id;
-        //   res.send(`update record with id: ${id}`)
-        // });
+app.delete(`/:id`, (req, res) => {
+  let id = req.params.id;
+  db.deleteById(id, (results) => {
+    res.send(results);
+  })
+});
 
-        app.delete(`/:id`, (req, res) => {
-          let id = req.params.id;
-          db.deleteById(id, (results) => {
-            res.send(results);
-          })
-        });
-
-        app.listen(port, () => {
-          console.log(`app listening on port ${port}`)
-        });
+app.listen(port, () => {
+  console.log(`app listening on port ${port}`)
+});
 
 //===========LEGACY CODE=====================
 // const db = require('../database/index.js');
@@ -57,8 +49,17 @@ app.get(`/:id`, (req, res) => {
   //   res.redirect(`/1`);
   // });
 
-// gets data for id endpoint
-// app.get(`/:id`, (req, res) => {
-  //   res.sendFile(path.join(__dirname, '/../client/dist/index.html'))
-  // })
+  // gets data for id endpoint
+  // app.get(`/:id`, (req, res) => {
+    //   res.sendFile(path.join(__dirname, '/../client/dist/index.html'))
+    // })
 //===================================================
+//==============LEGACY CODE=================//
+//**********ORIGINAL app.get(`\:id`) FUNC */
+// db.getDataForId(id, (err, results) => {
+  //   if (err) {
+    //     console.log('error getting data in server', err);
+  //   }
+//   res.send(results);
+// })
+//======================================//
