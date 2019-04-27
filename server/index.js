@@ -49,10 +49,12 @@ app.get(`/:id`, (req, res) => {
 //   res.send(`update record with id: ${id}`)
 // });
 
-// app.delete(`/restaurants/:id`, (req, res) => {
-//   let id = req.params.id;
-//   res.send(`delete record with id: ${id}`)
-// });
+app.delete(`/:id`, (req, res) => {
+  let id = req.params.id;
+  db.deleteById(id, (results) => {
+    res.send(results);
+  })
+});
 
 app.listen(port, () => {
   console.log(`app listening on port ${port}`)
